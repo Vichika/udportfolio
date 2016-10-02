@@ -34,3 +34,11 @@
   });
 
 ```
+
+
+
+## Critical Rendering Path Related Notes
+
+1. Minimize Critical Bytes
+2. Minimize Critical Number of Assets
+3. Minimize Critical Length (Number of round trips to the Server.)
