@@ -1,0 +1,22 @@
+{
+  "name": "udportfolio",
+  "version": "1.0.0",
+  "description": "web performance project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vichika/udportfolio.git"
+  },
+  "author": "Vick Eap",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vichika/udportfolio/issues"
+  },
+  "homepage": "https://github.com/Vichika/udportfolio#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
