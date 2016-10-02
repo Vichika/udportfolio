@@ -10,3 +10,11 @@ gulp.task("images", function() {
 
 });
 
+gulp.task("pizza-images", function() {
+    return gulp.src("views/images/*")
+            .pipe(cache(imagemin()))
+            .pipe(gulp.dest("dist/views/images/"))
+});
+
+
+
