@@ -22,6 +22,7 @@ gulp.task("critical", function() {
         inline: true,
        // base: '',
         src: 'index.html',
+        css: 'css/style.css',
         dest: 'dist/index-critical.html',
         width: 1300,
         height: 900,
