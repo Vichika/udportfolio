@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 var imagemin = require("gulp-imagemin");
 var cache = require("gulp-cache");
+var critical = require('critical');
 
 gulp.task("images", function() {
    return gulp.src("img/*")
@@ -16,5 +17,15 @@ gulp.task("pizza-images", function() {
             .pipe(gulp.dest("dist/views/images/"))
 });
 
-
+gulp.task("critical", function() {
+    critical.generate({
+        inline: true,
+       // base: '',
+        src: 'index.html',
+        dest: 'dist/index-critical.html',
+        width: 1300,
+        height: 900,
+        minify: true
+    });
+});
 
