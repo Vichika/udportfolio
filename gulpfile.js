@@ -1,7 +1,9 @@
-var gulp = require("gulp");
-var imagemin = require("gulp-imagemin");
-var cache = require("gulp-cache");
-var critical = require('critical');
+var gulp = require("gulp"),
+    imagemin = require("gulp-imagemin"),
+    cache = require("gulp-cache"),
+    critical = require('critical'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename');
 
 gulp.task("images", function() {
    return gulp.src("img/*")
@@ -29,3 +31,18 @@ gulp.task("critical", function() {
     });
 });
 
+// minify/uglify js
+gulp.task('minify-main', function() {
+    return gulp.src('views/js/main.js')
+            .pipe(rename({suffix:'.min'}))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist/views/js'));
+});
+
+// watch and update whenever changes are saved
+gulp.task('watch', function() {
+    gulp.watch('views/js/main.js', ['minify-main']);
+});
+
+// default gulp task
+gulp.task('default', ['minify-main']);
