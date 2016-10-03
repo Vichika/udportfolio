@@ -1,16 +1,29 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @Vichika
+ Watch 5
+  Star 50
+  Fork 678 cameronwp/udportfolio
+ Code  Issues 0  Pull requests 7  Projects 0  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathudportfolio/views/js/main.js
+297f79a  on Mar 30, 2015
+@cameronwp cameronwp Update main.js
+1 contributor
+RawBlameHistory    
+539 lines (484 sloc)  23.2 KB
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
-
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
-
-
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
 browser console. To learn more about User Timing API, check out:
 http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
 Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
