@@ -3,7 +3,8 @@ var gulp = require("gulp"),
     cache = require("gulp-cache"),
     critical = require('critical'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    cssmin = require('gulp-cssmin');
 
 gulp.task("images", function() {
    return gulp.src("img/*")
@@ -29,6 +30,32 @@ gulp.task("critical", function() {
         height: 900,
         minify: true
     });
+});
+
+gulp.task("critical-pizza", function() {
+    critical.generate({
+        inline: true,
+        base: './',
+        src: 'views/pizza.html',
+        dest: 'dist/views/pizza.html',
+        width: 1300,
+        height: 900,
+        minify: true
+    });
+});
+
+gulp.task("copy-bootstrap", function() {
+    gulp.src("./views/css/bootstrap-grid.css")
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist/views/css/'));
+});
+
+gulp.task("copy-style", function() {
+    gulp.src("./views/css/style.css")
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist/views/css/'));
 });
 
 // minify/uglify js
