@@ -516,8 +516,7 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  // use getElementsByClassName recommended by asian dude in webcast
-   items = document.getElementsByClassName('mover');
+  
       // cache length of items instead of calling it every time in the loop
     var len = items.length,
       // move this calc based on scrollTop outside of loop
@@ -571,6 +570,8 @@ document.addEventListener('DOMContentLoaded', function () {
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         movingPizzas.appendChild(elem);
     }
+    // use getElementsByClassName recommended by asian dude in webcast
+    items = document.getElementsByClassName('mover');
     updatePositions();
 });
 
