@@ -6,6 +6,9 @@ var gulp = require("gulp"),
     rename = require('gulp-rename'),
     cssmin = require('gulp-cssmin');
 
+/*** Image Optimization ***/
+
+// optimize images for index.html
 gulp.task("images", function() {
    return gulp.src("img/*")
    // Caching images that ran through imagemin
@@ -14,12 +17,16 @@ gulp.task("images", function() {
 
 });
 
+// optimize images for pizza.html
 gulp.task("pizza-images", function() {
     return gulp.src("views/images/*")
             .pipe(cache(imagemin()))
             .pipe(gulp.dest("dist/views/images/"))
 });
 
+/***  Above the Fold Critical CSS ***/ 
+
+// critical internal stylesheet for index.html 
 gulp.task("critical", function() {
     critical.generate({
         inline: true,
@@ -32,33 +39,22 @@ gulp.task("critical", function() {
     });
 });
 
+// critical internal stylesheet for pizza.html within the views folder 
 gulp.task("critical-pizza", function() {
-    critical.generate({
+     critical.generate({
         inline: true,
         base: './',
         src: 'views/pizza.html',
-        dest: 'dist/views/pizza.html',
+        dest: 'dist/views/pizza-critical.html',
         width: 1300,
         height: 900,
         minify: true
     });
 });
 
-gulp.task("copy-bootstrap", function() {
-    gulp.src("./views/css/bootstrap-grid.css")
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('dist/views/css/'));
-});
+/*** Minify JS Files ***/
 
-gulp.task("copy-style", function() {
-    gulp.src("./views/css/style.css")
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('dist/views/css/'));
-});
-
-// minify/uglify main.js inside views
+// minify main.js inside views
 gulp.task('minify-main', function() {
     return gulp.src('views/js/main.js')
             .pipe(rename({suffix:'.min'}))
@@ -79,4 +75,4 @@ gulp.task('watch', function() {
 });
 
 // default gulp task
-gulp.task('default', ['minify-main']);
+gulp.task('default', ['minify-main','minify-perfmatters']);
