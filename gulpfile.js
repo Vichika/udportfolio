@@ -58,12 +58,19 @@ gulp.task("copy-style", function() {
         .pipe(gulp.dest('dist/views/css/'));
 });
 
-// minify/uglify js
+// minify/uglify main.js inside views
 gulp.task('minify-main', function() {
     return gulp.src('views/js/main.js')
             .pipe(rename({suffix:'.min'}))
             .pipe(uglify())
             .pipe(gulp.dest('dist/views/js'));
+});
+// perfmatters outer structure
+gulp.task('minify-perfmatters', function() {
+    return gulp.src('js/perfmatters.js')
+            .pipe(rename({suffix:'.min'}))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist/js/'));
 });
 
 // watch and update whenever changes are saved

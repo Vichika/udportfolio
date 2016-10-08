@@ -208,6 +208,7 @@ function getAdj(x) {
                 "majestic", "grand", "stunning"
             ];
             return praise;
+        // removed scientific case to save some bits since it's default anyway 
         default:
             var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological",
                 "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar",
@@ -281,6 +282,7 @@ function getNoun(y) {
                 "shop", "store", "theater", "garden", "canyon", "highway", "restaurant", "cafe", "diner", "street", "road", "freeway", "alley"
             ];
             return places;
+        // removed scifi case to save some bits since it's default anyway
         default:
             var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy",
                 "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
@@ -538,6 +540,8 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
+// custom function to determine number of pizzas to make
+// based on screen height and screen width
 function findNumPizzas() {
     var browserHeight = window.innerHeight,
         browserWidth = window.innerWidth,
@@ -558,6 +562,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var cols = 8;
     var s = 256;
     var movingPizzas = document.querySelector("#movingPizzas1");
+    // find number of pizzas to make based on screen width and screen height
     var numPizzas = findNumPizzas();
     for (var i = 0; i < numPizzas; i++) {
         var elem = document.createElement('img');
@@ -570,6 +575,7 @@ document.addEventListener('DOMContentLoaded', function () {
         movingPizzas.appendChild(elem);
     }
     // use getElementsByClassName recommended by asian dude in webcast
+    // moved items definition from updatePositions 
     items = document.getElementsByClassName('mover');
     updatePositions();
 });
