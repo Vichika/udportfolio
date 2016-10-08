@@ -19,6 +19,7 @@ cameron *at* udacity *dot* com
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
+var items;
 pizzaIngredients.meats = [
     "Pepperoni",
     "Sausage",
@@ -516,9 +517,9 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   // use getElementsByClassName recommended by asian dude in webcast
-  var items = document.getElementsByClassName('mover'),
+   items = document.getElementsByClassName('mover');
       // cache length of items instead of calling it every time in the loop
-      len = items.length,
+    var len = items.length,
       // move this calc based on scrollTop outside of loop
       documentSroll = document.body.scrollTop / 1250;
   for (var i = 0; i < len; i++) {
