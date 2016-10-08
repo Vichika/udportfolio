@@ -516,8 +516,7 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  
-      // cache length of items instead of calling it every time in the loop
+    // cache length of items instead of calling it every time in the loop
     var len = items.length,
       // move this calc based on scrollTop outside of loop
       documentSroll = document.body.scrollTop / 1250;
