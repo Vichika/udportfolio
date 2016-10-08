@@ -543,10 +543,10 @@ window.addEventListener('scroll', updatePositions);
 function findNumPizzas() {
     var browserHeight = window.innerHeight,
         browserWidth = window.innerWidth,
-        // leave a little bit more room for the cols, use 100 vs 73
-        numCols = Math.floor(browserWidth/100),
-        // leave a little bit more room for the rows, use 150 vs 100
-        numRows = Math.floor(browserHeight/150);
+        // leave a little bit more room for the cols, use 150 vs 73
+        numCols = Math.floor(browserWidth/150),
+        // leave a little bit more room for the rows, use 200 vs 100
+        numRows = Math.floor(browserHeight/200);
 
     // amount of sliding pizzas to load. 
     return numCols * numRows;
