@@ -56,14 +56,14 @@ gulp.task("critical-pizza", function() {
 
 // minify main.js inside views
 gulp.task('minify-main', function() {
-    return gulp.src('views/js/main.js')
+    return gulp.src('src/views/js/main.js')
             .pipe(rename({suffix:'.min'}))
             .pipe(uglify())
             .pipe(gulp.dest('dist/views/js'));
 });
 // perfmatters outer structure
 gulp.task('minify-perfmatters', function() {
-    return gulp.src('js/perfmatters.js')
+    return gulp.src('src/js/perfmatters.js')
             .pipe(rename({suffix:'.min'}))
             .pipe(uglify())
             .pipe(gulp.dest('dist/js/'));
@@ -71,14 +71,14 @@ gulp.task('minify-perfmatters', function() {
 
 /*** Minify CSS files ***/
 gulp.task('minify-style', function() {
-    return gulp.src('css/style.css')
+    return gulp.src('src/css/style.css')
                 .pipe(cssmin())
                 .pipe(rename({suffix:'.min'}))
                 .pipe(gulp.dest('dist/css/'))
 });
 
 gulp.task('minify-print', function() {
-    return gulp.src('css/print.css')
+    return gulp.src('src/css/print.css')
                 .pipe(cssmin())
                 .pipe(rename({suffix:'.min'}))
                 .pipe(gulp.dest('dist/css/'))
@@ -86,7 +86,7 @@ gulp.task('minify-print', function() {
 
 // watch and update whenever changes are saved
 gulp.task('watch', function() {
-    gulp.watch('views/js/main.js', ['minify-main']);
+    gulp.watch('src/views/js/main.js', ['minify-main']);
 });
 
 // default gulp task
