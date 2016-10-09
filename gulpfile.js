@@ -69,6 +69,21 @@ gulp.task('minify-perfmatters', function() {
             .pipe(gulp.dest('dist/js/'));
 });
 
+/*** Minify CSS files ***/
+gulp.task('minify-style', function() {
+    return gulp.src('css/style.css')
+                .pipe(cssmin())
+                .pipe(rename({suffix:'.min'}))
+                .pipe(gulp.dest('dist/css/'))
+});
+
+gulp.task('minify-print', function() {
+    return gulp.src('css/print.css')
+                .pipe(cssmin())
+                .pipe(rename({suffix:'.min'}))
+                .pipe(gulp.dest('dist/css/'))
+});
+
 // watch and update whenever changes are saved
 gulp.task('watch', function() {
     gulp.watch('views/js/main.js', ['minify-main']);
