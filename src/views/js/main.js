@@ -465,12 +465,13 @@ var resizePizzas = function (size) {
         // array of random pizza container dom elements, using getElementsByClassName recommended by UD webcasts
         var rpc = document.getElementsByClassName("randomPizzaContainer"),
             // cache length of array instead of calling it every time in loop  
-            len = rpc.length;
-
+            len = rpc.length,
+            // dx will be identical for each pizza
+            dx = determineDx(rpc[0], size),
+            // newwidth will be identical for each pizza 
+            newwidth = (rpc[0].offsetWidth + dx) + 'px';
         for (var i=0; i<len; i++) {
-            var dx = determineDx(rpc[i], size),
-                newwidth = (rpc[i].offsetWidth + dx) + 'px';
-                rpc[i].style.width = newwidth;
+            rpc[i].style.width = newwidth;
         }
 
     }
